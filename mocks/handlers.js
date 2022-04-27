@@ -5,7 +5,7 @@ export const __MOCK_JWT_KEY = "JavaScriptIsAwesome!";
 let user = { name: "박수정", nickname: "sujpark", level: 2, point: 30 };
 
 export const handlers = [
-  rest.post("http://localhost:3000/api/login", async (req, res, ctx) => {
+  rest.post("http://localhost:3000/api/signin", async (req, res, ctx) => {
     try {
       const { id, password } = req.body;
       if (!id || !password) {
@@ -13,7 +13,6 @@ export const handlers = [
       }
 
       const token = jwt.sign({ id: id }, __MOCK_JWT_KEY);
-
       return res(ctx.status(200), ctx.json({ token }));
     } catch (error) {
       if (error instanceof UnauthorizedError) {
@@ -47,5 +46,9 @@ export const handlers = [
         ctx.json({ message: "Something went wrong.." })
       );
     }
+  }),
+
+  rest.get("/api/signin", async (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ token: "hi" }));
   })
 ];
