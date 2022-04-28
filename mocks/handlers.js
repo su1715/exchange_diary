@@ -2,7 +2,13 @@ import { rest } from "msw";
 
 export const __MOCK_JWT_KEY = "JavaScriptIsAwesome!";
 
-let user = { name: "박수정", nickname: "sujpark", level: 2, point: 30 };
+let user = {
+  id: "sujpark",
+  name: "박수정",
+  nickname: "빛나는감자",
+  level: 2,
+  point: 30
+};
 
 export const handlers = [
   rest.post("http://localhost:3000/api/signin", async (req, res, ctx) => {
@@ -48,7 +54,55 @@ export const handlers = [
     }
   }),
 
+  rest.get("http://localhost:3000/api/me/friends", async (req, res, ctx) => {
+    try {
+      // const authHeader = req.headers.get("Authorization");
+      // if (!authHeader || !authHeader.startsWith("Bearer "))
+      //   throw new UnauthorizedError();
+      // const token = authHeader.substring(7, authHeader.length);
+      // jwt.verify(token, __MOCK_JWT_KEY);
+
+      return res(
+        ctx.status(200),
+        ctx.json({
+          friends: [
+            {
+              id: "seastar",
+              nickname: "바다별",
+              time: getDateAfter12Hour(new Date(2022, 3, 28, 13, 0, 0))
+            },
+            {
+              id: "skybarley",
+              nickname: "하늘보리",
+              time: getDateAfter12Hour(new Date(2022, 3, 28, 17, 0, 0))
+            },
+            {
+              id: "bleedingheart",
+              nickname: "금낭화",
+              time: getDateAfter12Hour(new Date(2022, 3, 28, 9, 0, 0))
+            }
+          ]
+        })
+      );
+    } catch (error) {
+      if (
+        error instanceof UnauthorizedError ||
+        error instanceof JsonWebTokenError
+      ) {
+        return res(ctx.status(401), ctx.json({ message: "Unauthorized" }));
+      }
+      return res(
+        ctx.status(504),
+        ctx.json({ message: "Something went wrong.." })
+      );
+    }
+  }),
+
   rest.get("/api/signin", async (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ token: "hi" }));
   })
 ];
+
+function getDateAfter12Hour(date) {
+  return date.setHours(date.getHours() + 12);
+}

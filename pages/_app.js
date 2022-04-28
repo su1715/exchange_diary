@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
+import { RecoilRoot } from "recoil";
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   require("../mocks");
@@ -7,9 +8,11 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <RecoilRoot>
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
+    </RecoilRoot>
   );
 }
 
