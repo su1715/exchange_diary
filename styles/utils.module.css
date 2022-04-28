@@ -1,0 +1,20 @@
+.layout {
+	display: flex;
+	flex-direction: row;
+	height: inherit;
+}
+
+.leftSide {
+	background-color: yellow;
+	width: 10%;
+}
+
+.main {
+	background-color: pink;
+	width: 80%;
+}
+
+.rightSide {
+	background-color: rgb(98, 189, 63);
+	width: 10%;
+}
