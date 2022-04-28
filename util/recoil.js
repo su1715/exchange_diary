@@ -20,6 +20,16 @@ export const newLetterState = atom({
   default: false
 });
 
+export const recieveLettersState = atom({
+  key: "recieveLetterState",
+  default: []
+});
+
+export const sendLettersState = atom({
+  key: "sendLetterState",
+  default: []
+});
+
 export const isTodayState = selector({
   key: "isTodayState",
   get: ({ get }) => {

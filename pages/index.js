@@ -8,7 +8,9 @@ import {
   friendsState,
   dateState,
   newLetterState,
-  isTodayState
+  isTodayState,
+  recieveLettersState,
+  sendLettersState
 } from "../util/recoil";
 import { getData } from "../util/api";
 import { useEffect } from "react";
@@ -19,6 +21,8 @@ export default function Home() {
   const { data: session } = useSession();
   const setUser = useSetRecoilState(userState);
   const setFriends = useSetRecoilState(friendsState);
+  const setRecieveLetter = useSetRecoilState(recieveLettersState);
+  const setSendLetter = useSetRecoilState(sendLettersState);
   const clickedDate = useRecoilValue(dateState);
   const newLetter = useRecoilValue(newLetterState);
   const isToday = useRecoilValue(isTodayState);
@@ -27,8 +31,15 @@ export default function Home() {
     async function fetchData() {
       const user = await getData("/api/me");
       const { friends } = await getData("/api/me/friends");
+      const { letters: recieveLetters } = await getData(
+        "/api/me/letter/recieve"
+      );
+      const { letters: sendLetters } = await getData("/api/me/letter/send");
       setUser(user);
       setFriends(friends);
+      setRecieveLetter(recieveLetters);
+      setSendLetter(sendLetters);
+      console.log(sendLetters);
     }
     if (session) {
       fetchData();

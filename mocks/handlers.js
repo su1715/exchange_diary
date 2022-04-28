@@ -56,12 +56,6 @@ export const handlers = [
 
   rest.get("http://localhost:3000/api/me/friends", async (req, res, ctx) => {
     try {
-      // const authHeader = req.headers.get("Authorization");
-      // if (!authHeader || !authHeader.startsWith("Bearer "))
-      //   throw new UnauthorizedError();
-      // const token = authHeader.substring(7, authHeader.length);
-      // jwt.verify(token, __MOCK_JWT_KEY);
-
       return res(
         ctx.status(200),
         ctx.json({
@@ -97,6 +91,87 @@ export const handlers = [
       );
     }
   }),
+  rest.get(
+    "http://localhost:3000/api/me/letter/recieve",
+    async (req, res, ctx) => {
+      try {
+        return res(
+          ctx.status(200),
+          ctx.json({
+            letters: [
+              {
+                caller: "seastar",
+                reciever: "sujpark",
+                text: "오늘도 화이팅!!!"
+              },
+              {
+                caller: "skybarley",
+                reciever: "sujpark",
+                text: "여러분 잘 지내나요? 편지 좀 보내주세요"
+              },
+              {
+                caller: "bleedingheart",
+                reciever: "sujpark",
+                text: "당분간 잠수탑니다. 연락하지마세요~"
+              }
+            ]
+          })
+        );
+      } catch (error) {
+        if (
+          error instanceof UnauthorizedError ||
+          error instanceof JsonWebTokenError
+        ) {
+          return res(ctx.status(401), ctx.json({ message: "Unauthorized" }));
+        }
+        return res(
+          ctx.status(504),
+          ctx.json({ message: "Something went wrong.." })
+        );
+      }
+    }
+  ),
+
+  rest.get(
+    "http://localhost:3000/api/me/letter/send",
+    async (req, res, ctx) => {
+      try {
+        return res(
+          ctx.status(200),
+          ctx.json({
+            letters: [
+              {
+                caller: "sujpark",
+                reciever: "seastar",
+                text: "그래요 화이팅!!!"
+              },
+              {
+                caller: "sujpark",
+                reciever: "skybarley",
+                text: "옛다 편지~"
+              },
+              {
+                caller: "sujpark",
+                reciever: "bleedingheart",
+                text: "친삭하겠습니다^^"
+              }
+            ]
+          })
+        );
+      } catch (error) {
+        if (
+          error instanceof UnauthorizedError ||
+          error instanceof JsonWebTokenError
+        ) {
+          return res(ctx.status(401), ctx.json({ message: "Unauthorized" }));
+        }
+        return res(
+          ctx.status(504),
+          ctx.json({ message: "Something went wrong.." })
+        );
+      }
+    }
+  ),
 
   rest.get("/api/signin", async (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ token: "hi" }));

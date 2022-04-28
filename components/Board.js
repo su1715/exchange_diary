@@ -1,8 +1,14 @@
 import { useRecoilValue, useRecoilState } from "recoil";
-import { dateState, newLetterState, isTodayState } from "../util/recoil";
+import {
+  dateState,
+  newLetterState,
+  isTodayState,
+  sendLettersState
+} from "../util/recoil";
 
 export default function Board() {
   const date = useRecoilValue(dateState);
+  const sendLetters = useRecoilValue(sendLettersState);
   const [newLetter, setNewLetter] = useRecoilState(newLetterState);
   const isToday = useRecoilValue(isTodayState);
 
@@ -13,6 +19,11 @@ export default function Board() {
     <div>
       <h1>{dateToString(date)}</h1>
       <h3>보낸 편지 목록</h3>
+      {sendLetters.map(letter => (
+        <div id={letter.id}>
+          <span>받는이 :{letter.reciever}</span>
+        </div>
+      ))}
       {isToday ? (
         <button onClick={onClick}>
           {newLetter ? "취소" : "새 편지 보내기"}
