@@ -5,6 +5,8 @@
 }
 
 .leftSide {
+	display: flex;
+	flex-direction: column;
 	background-color: yellow;
 	width: 10%;
 }

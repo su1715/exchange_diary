@@ -6,7 +6,6 @@ import { useSetRecoilState, useRecoilValue } from "recoil";
 import {
   userState,
   friendsState,
-  dateState,
   newLetterState,
   isTodayState,
   receiveLettersState,
@@ -38,7 +37,6 @@ export default function Home() {
       setFriends(friends);
       setreceiveLetter(receiveLetters);
       setSendLetter(sendLetters);
-      console.log(friends);
     }
     if (session) {
       fetchData();
@@ -66,14 +64,3 @@ export default function Home() {
     </>
   );
 }
-
-// export async function getStaticProps() {
-//   const res = await fetch("http://localhost:3000/api/me", {
-//     headers: { Accept: "application/json" }
-//   });
-//   console.log(res);
-//   if (!res.ok) console.log("error");
-//   const user = await res.json();
-
-//   return { props: { user } };
-// }

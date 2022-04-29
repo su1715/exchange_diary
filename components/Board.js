@@ -34,7 +34,7 @@ export default function Board() {
       {sendLetters
         .filter(letter => isSameDate(letter.transmissionTime, date))
         .map(letter => (
-          <div>
+          <div key={letter.id}>
             보낸이 :{" "}
             {friends.find(friend => friend.id === letter.receiver).nickname}
             <LetterItem key={letter.id} letter={letter} />
