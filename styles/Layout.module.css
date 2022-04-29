@@ -7,8 +7,7 @@
 .leftSide {
 	display: flex;
 	flex-direction: column;
-	background-color: yellow;
-	width: 10%;
+	width: 20rem;
 }
 
 .main {
@@ -17,6 +16,7 @@
 }
 
 .rightSide {
-	background-color: rgb(98, 189, 63);
-	width: 10%;
+	display: flex;
+	flex-direction: column;
+	width: 20rem;
 }

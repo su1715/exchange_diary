@@ -1,6 +1,7 @@
 import LetterItem from "./LetterItem";
 import { useRecoilValue } from "recoil";
 import { receiveLettersState } from "../util/recoil";
+import friendStyles from "../styles/Friend.module.css";
 
 export default function Friend({ friend }) {
   const receiveLetters = useRecoilValue(receiveLettersState);
@@ -11,9 +12,9 @@ export default function Friend({ friend }) {
     <LetterItem key={letter.id} letter={letter} />
   ));
   return (
-    <div>
-      <div>{friend.nickname}</div>
-      <div>
+    <div className={friendStyles.friend}>
+      <div className={friendStyles.nickname}>{friend.nickname}</div>
+      <div className={friendStyles.item}>
         {letterItemList.length > 0 ? letterItemList : "일기가 없습니다"}
       </div>
     </div>
