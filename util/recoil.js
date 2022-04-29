@@ -20,8 +20,8 @@ export const newLetterState = atom({
   default: false
 });
 
-export const recieveLettersState = atom({
-  key: "recieveLetterState",
+export const receiveLettersState = atom({
+  key: "receiveLetterState",
   default: []
 });
 
@@ -38,7 +38,7 @@ export const paperState = atom({
 export const totalPapersState = selector({
   key: "totalPapersState",
   get: ({ get }) => {
-    return [...get(sendLettersState), ...get(recieveLettersState)];
+    return [...get(sendLettersState), ...get(receiveLettersState)];
   }
 });
 

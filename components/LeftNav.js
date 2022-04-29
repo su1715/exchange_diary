@@ -29,13 +29,3 @@ export default function LeftNav() {
     </>
   );
 }
-
-async function fetchData() {
-  try {
-    const response = await fetch("http://localhost:3000/api/me");
-    if (!response.ok) throw Error("네트워크 에러");
-    return await response.json();
-  } catch (e) {
-    throw Error(e);
-  }
-}

@@ -7,7 +7,7 @@ export default function Letter() {
   const friends = useRecoilValue(friendsState);
   const [letter, setLetter] = useState({
     caller: user.id,
-    reciever: "",
+    receiver: "",
     text: ""
   });
 
@@ -16,12 +16,10 @@ export default function Letter() {
   };
 
   const onSend = () => {
-    if (letter.reciever !== "") {
-      console.log(letter);
-      console.log("send");
+    if (letter.receiver !== "") {
       setLetter({
         caller: user.id,
-        reciever: "",
+        receiver: "",
         text: ""
       });
     }
@@ -33,7 +31,7 @@ export default function Letter() {
       <br />
       <span>
         받는 사람:{" "}
-        <select name="reciever" value={letter.reciever} onChange={onChange}>
+        <select name="receiver" value={letter.receiver} onChange={onChange}>
           <option value="">받을 사람을 골라주세요!</option>
           {friends.map(friend => (
             <option key={friend.id} value={friend.id}>

@@ -4,17 +4,20 @@ import {
   newLetterState,
   isTodayState,
   sendLettersState,
-  paperState
+  paperState,
+  friendsState
 } from "../util/recoil";
 import { useEffect } from "react";
 import Paper from "./Paper";
+import LetterItem from "./LetterItem";
 
 export default function Board() {
   const date = useRecoilValue(dateState);
   const sendLetters = useRecoilValue(sendLettersState);
   const [newLetter, setNewLetter] = useRecoilState(newLetterState);
   const isToday = useRecoilValue(isTodayState);
-  const [paper, setPaper] = useRecoilState(paperState);
+  const paper = useRecoilValue(paperState);
+  const friends = useRecoilValue(friendsState);
 
   useEffect(() => {
     if (!isToday) setNewLetter(false);
@@ -24,27 +27,35 @@ export default function Board() {
     setNewLetter(!newLetter);
   };
 
-  const onPaperClick = id => {
-    setPaper(id);
-  };
-
   return (
     <div>
       <h1>{dateToString(date)}</h1>
       <h3>보낸 편지 목록</h3>
-      {sendLetters.map(letter => (
-        <div key={letter.id} onClick={() => onPaperClick(letter.id)}>
-          <span>받는이 :{letter.reciever}</span>
-        </div>
-      ))}
+      {sendLetters
+        .filter(letter => isSameDate(letter.transmissionTime, date))
+        .map(letter => (
+          <div>
+            보낸이 :{" "}
+            {friends.find(friend => friend.id === letter.receiver).nickname}
+            <LetterItem key={letter.id} letter={letter} />
+          </div>
+        ))}
       {isToday ? (
         <button onClick={onNewLetterClick}>
           {newLetter ? "취소" : "새 편지 보내기"}
         </button>
       ) : null}
-      {paper ? <Paper paper={paper} /> : null}
+      {paper ? <Paper paperId={paper} /> : null}
     </div>
   );
+}
+
+function isSameDate(date1, date2) {
+  date1 = new Date(date1);
+  if (date1.getFullYear() !== date2.getFullYear()) return false;
+  if (date1.getMonth() !== date2.getMonth()) return false;
+  if (date1.getDate() !== date2.getDate()) return false;
+  return true;
 }
 
 function dateToString(dateObj) {
