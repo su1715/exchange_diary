@@ -23,7 +23,6 @@ export default function Home() {
   const setFriends = useSetRecoilState(friendsState);
   const setRecieveLetter = useSetRecoilState(recieveLettersState);
   const setSendLetter = useSetRecoilState(sendLettersState);
-  const clickedDate = useRecoilValue(dateState);
   const newLetter = useRecoilValue(newLetterState);
   const isToday = useRecoilValue(isTodayState);
 
@@ -52,7 +51,6 @@ export default function Home() {
         <Layout>
           <div>
             <MyCalendar />
-            {clickedDate.toString()}
             <Board />
             {newLetter && isToday ? <Letter /> : null}
           </div>

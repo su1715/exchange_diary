@@ -30,6 +30,18 @@ export const sendLettersState = atom({
   default: []
 });
 
+export const paperState = atom({
+  key: "paperState",
+  default: null
+});
+
+export const totalPapersState = selector({
+  key: "totalPapersState",
+  get: ({ get }) => {
+    return [...get(sendLettersState), ...get(recieveLettersState)];
+  }
+});
+
 export const isTodayState = selector({
   key: "isTodayState",
   get: ({ get }) => {

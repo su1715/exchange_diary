@@ -100,11 +100,13 @@ export const handlers = [
           ctx.json({
             letters: [
               {
+                id: "1",
                 caller: "seastar",
                 reciever: "sujpark",
                 text: "오늘도 화이팅!!!"
               },
               {
+                id: "2",
                 caller: "skybarley",
                 reciever: "sujpark",
                 text: "여러분 잘 지내나요? 편지 좀 보내주세요"
@@ -141,16 +143,19 @@ export const handlers = [
           ctx.json({
             letters: [
               {
+                id: "4",
                 caller: "sujpark",
                 reciever: "seastar",
                 text: "그래요 화이팅!!!"
               },
               {
+                id: "5",
                 caller: "sujpark",
                 reciever: "skybarley",
                 text: "옛다 편지~"
               },
               {
+                id: "6",
                 caller: "sujpark",
                 reciever: "bleedingheart",
                 text: "친삭하겠습니다^^"
