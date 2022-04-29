@@ -51,13 +51,15 @@ export const handlers = [
             {
               id: "4",
               caller: "seastar",
+              caller_nickname: "하늘별",
               receiver: "sujpark",
               text: "오늘도 화이팅!!!",
-              transmissionTime: new Date(hourBefore(4))
+              transmissionTime: new Date(hourBefore(25))
             },
             {
               id: "5",
               caller: "skybarley",
+              caller_nickname: "하늘보리",
               receiver: "sujpark",
               text: "잘 지내나요? 편지 좀 보내주세요",
               transmissionTime: new Date(hourBefore(2))
@@ -65,6 +67,7 @@ export const handlers = [
             {
               id: "6",
               caller: "bleedingheart",
+              caller_nickname: "금낭화",
               receiver: "sujpark",
               text: "당분간 잠수탑니다. 연락하지마세요~",
               transmissionTime: new Date(hourBefore(12))
@@ -72,6 +75,7 @@ export const handlers = [
             {
               id: "7",
               caller: "bleedingheart",
+              caller_nickname: "금낭화",
               receiver: "sujpark",
               text: "절교해요~",
               transmissionTime: new Date(hourBefore(9))
@@ -92,6 +96,7 @@ export const handlers = [
             {
               id: "1",
               caller: "sujpark",
+              caller_nickname: "빛나는감자",
               receiver: "seastar",
               text: "그래요 화이팅!!!",
               transmissionTime: new Date(hourBefore(13))
@@ -99,6 +104,7 @@ export const handlers = [
             {
               id: "2",
               caller: "sujpark",
+              caller_nickname: "빛나는감자",
               receiver: "skybarley",
               text: "옛다 편지~",
               transmissionTime: new Date(hourBefore(14))
@@ -106,6 +112,7 @@ export const handlers = [
             {
               id: "3",
               caller: "sujpark",
+              caller_nickname: "빛나는감자",
               receiver: "bleedingheart",
               text: "친삭하겠습니다^^",
               transmissionTime: new Date(hourBefore(12))
