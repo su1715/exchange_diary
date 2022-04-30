@@ -1,8 +1,8 @@
-import "react-calendar/dist/Calendar.css";
+//import "react-calendar/dist/Calendar.css";
 import { Calendar } from "react-calendar";
-import { useRecoilState, seRecoilValue } from "recoil";
-import { dateState, isTodayState } from "../util/recoil";
-import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { dateState } from "../util/recoil";
+import myCalenarStyles from "../styles/MyCalendar.module.css";
 
 export default function MyCalendar() {
   const [value, setValue] = useRecoilState(dateState);
@@ -10,5 +10,9 @@ export default function MyCalendar() {
   const onChange = value => {
     setValue(value);
   };
-  return <Calendar onChange={onChange} value={value} />;
+  return (
+    <div className={myCalenarStyles.calendarWrapper}>
+      <Calendar onChange={onChange} value={value} />
+    </div>
+  );
 }

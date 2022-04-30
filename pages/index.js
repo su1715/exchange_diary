@@ -1,21 +1,15 @@
-import styles from "../styles/Home.module.css";
 import { useSession } from "next-auth/react";
 import Layout from "../components/Layout";
-import MyCalendar from "../components/MyCalendar";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState } from "recoil";
 import {
   userState,
   friendsState,
-  newLetterState,
-  isTodayState,
   receiveLettersState,
   sendLettersState
 } from "../util/recoil";
 import { getData } from "../util/api";
 import { useEffect } from "react";
 import Board from "../components/Board";
-import Letter from "../components/Letter";
-import UserInfo from "../components/UserInfo";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -23,8 +17,6 @@ export default function Home() {
   const setFriends = useSetRecoilState(friendsState);
   const setreceiveLetter = useSetRecoilState(receiveLettersState);
   const setSendLetter = useSetRecoilState(sendLettersState);
-  const newLetter = useRecoilValue(newLetterState);
-  const isToday = useRecoilValue(isTodayState);
 
   useEffect(() => {
     async function fetchData() {
@@ -45,22 +37,8 @@ export default function Home() {
   }, [session]);
   return (
     <Layout>
-      <div>
-        <h1>추억의 교환일기</h1>
-        <UserInfo />
-        {session ? (
-          <>
-            <MyCalendar />
-            <Board />
-            {newLetter && isToday ? <Letter /> : null}
-          </>
-        ) : (
-          <div>SignIn Plz...</div>
-        )}
-      </div>
+      {" "}
+      <Board />{" "}
     </Layout>
   );
 }
-
-//todo : Board => SendList
-// index : >> Board로 세분화

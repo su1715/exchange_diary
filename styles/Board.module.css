@@ -1,0 +1,15 @@
+.board{
+	width: 100%;
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.listsWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-block: 1rem;
+	width: 100%;
+}

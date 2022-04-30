@@ -11,8 +11,11 @@ export default function FriendList() {
   ));
   return (
     <div className={friendListStyles.friendList}>
-      <h2 classname={friendListStyles.title}>{user.nickname}의 친구들</h2>
-      {friendList.length > 0 ? friendList : "친구를 추가해볼까요?"}
+      <h2 className={friendListStyles.title}>친구 목록</h2>
+      {friends.map(friend => (
+        <div key={friend.id}>{friend.nickname}</div>
+      ))}
+      {/* {friendList.length > 0 ? friendList : "친구를 추가해볼까요?"} */}
     </div>
   );
 }

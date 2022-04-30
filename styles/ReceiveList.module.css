@@ -1,9 +1,9 @@
-.friendList {
+.receiveList {
 	padding: 10px;
 	background-color: white;
 	border-radius: 1rem;
 	width: 50%;
-	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .title {

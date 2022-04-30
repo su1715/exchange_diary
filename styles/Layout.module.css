@@ -1,13 +1,11 @@
 .layout {
-	display: flex;
 	height: inherit;
+	display: flex;
 	justify-content: center;
 }
 
-.leftSide {
-	display: flex;
-	flex-direction: column;
-	width: 20rem;
+.title {
+	font-size: 3.5rem;
 }
 
 .main {
@@ -15,11 +13,6 @@
 	padding: 10px;
 	width: 70rem;
 	display: flex;
-	justify-content: center;
-}
-
-.rightSide {
-	display: flex;
 	flex-direction: column;
-	width: 20rem;
+	align-items: center;
 }

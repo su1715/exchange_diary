@@ -1,0 +1,10 @@
+.calendarWrapper {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-radius: 1rem;
+	margin-block: 1rem;
+	padding-block: 1rem;
+}

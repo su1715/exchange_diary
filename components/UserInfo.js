@@ -14,13 +14,18 @@ export default function UserInfo() {
         </div>
         <div>Id : {user.id}</div>
         <div>Point : {user.point}</div>
-        <button onClick={signOut}>Sign Out</button>
+        <button className="button" onClick={signOut}>
+          Sign Out
+        </button>
       </div>
     );
   }
   return (
-    <div>
-      로그인이 필요합니다 <button onClick={signIn}>Sign Up</button>
+    <div className={userInfoStyles.userInfo}>
+      로그인이 필요합니다{" "}
+      <button className="button" onClick={signIn}>
+        Sign Up
+      </button>
     </div>
   );
 }
