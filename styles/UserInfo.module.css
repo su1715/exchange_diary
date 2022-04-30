@@ -1,7 +1,11 @@
 .userInfo {
 	padding: 10px;
-	border: thick double #32a1ce;
-	border-radius: 1rem;
+	background-color: white;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
 }
 
 .nickname {

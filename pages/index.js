@@ -15,6 +15,7 @@ import { getData } from "../util/api";
 import { useEffect } from "react";
 import Board from "../components/Board";
 import Letter from "../components/Letter";
+import UserInfo from "../components/UserInfo";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -42,25 +43,24 @@ export default function Home() {
       fetchData();
     }
   }, [session]);
-
-  if (session) {
-    return (
-      <>
-        <Layout>
-          <div>
+  return (
+    <Layout>
+      <div>
+        <h1>추억의 교환일기</h1>
+        <UserInfo />
+        {session ? (
+          <>
             <MyCalendar />
             <Board />
             {newLetter && isToday ? <Letter /> : null}
-          </div>
-        </Layout>
-      </>
-    );
-  }
-  return (
-    <>
-      <Layout>
-        <div>SignIn Plz...</div>
-      </Layout>
-    </>
+          </>
+        ) : (
+          <div>SignIn Plz...</div>
+        )}
+      </div>
+    </Layout>
   );
 }
+
+//todo : Board => SendList
+// index : >> Board로 세분화
