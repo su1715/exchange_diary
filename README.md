@@ -1,4 +1,4 @@
-# Exchange_diary
+# Exchange Diary
 
 ## 개요
 
