@@ -1,23 +1,25 @@
 .back {
-	background-color:rgba(0, 0, 0, 0.5);
-	height: 100vh;
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .paper {
-	position: fixed;
-	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	background: white;
-	width: 35rem;
-	height: 50rem;
-	border-radius: 1.7rem;
-	padding-top: 35px;
-	padding-bottom: 20px;
-	padding-inline: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 35rem;
+  height: 50rem;
+  border-radius: 1.7rem;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  padding-inline: 30px;
+  white-space: pre-wrap;
 
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }

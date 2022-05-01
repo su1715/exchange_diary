@@ -18,6 +18,7 @@ import InfoLayout from "./layouts/InfoLayout";
 import MainLayout from "./layouts/MainLayout";
 import ReadPaper from "./ReadPaper";
 import SearchFriend from "./SearchFriend";
+import SiteInfo from "./SiteInfo";
 
 export default function Board() {
   const { data: session } = useSession();

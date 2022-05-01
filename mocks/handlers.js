@@ -32,19 +32,19 @@ const friendsList = [
 export const handlers = [
   rest.post("http://localhost:3000/api/friends/find", async (req, res, ctx) => {
     const { id } = req.body;
-    if (id === "abc" || id === "def" || id === "ghi")
+    if (id === "abcdefg" || id === "def" || id === "ghi")
       return res(
         ctx.status(200),
         ctx.json({
           result: "success",
-          friend: { id, nickname: `닉네임${friendsList.length}` },
+          friend: { id, nickname: `촉촉한초코칩` },
         })
       );
     else return res(ctx.status(200), ctx.json({ result: "fail" }));
   }),
   rest.post("http://localhost:3000/api/friends/add", async (req, res, ctx) => {
     const { id } = req.body;
-    friendsList.push({ id, nickname: `닉네임${friendsList.length}` });
+    friendsList.push({ id, nickname: `촉촉한초코칩` });
     return res(ctx.status(200), ctx.json({ result: "success" }));
   }),
 
@@ -78,7 +78,7 @@ export const handlers = [
                 "bleedingheart",
                 "notyourfriend",
               ],
-              text: "오늘도 화이팅!!! 다음 주말에 여행갈 생각하니 너무 신난다!",
+              text: "오늘도 화이팅!!!\n다음 주말에 여행갈 생각하니 너무 신난다!\n\n 야근도 날 막을 순 없다!!",
               transmissionTime: new Date(hourBefore(25)),
             },
             {
@@ -125,8 +125,8 @@ export const handlers = [
                 "bleedingheart",
                 "notyourfriend",
               ],
-              text: "여러분 오늘도 힘내세요 ㅎㅎ",
-              transmissionTime: new Date(hourBefore(72)),
+              text: "엄마가 섬그늘에 굴 따러 가면 \n아기가 혼자 남아 집을 보다가 \n바다가 불러주는 자장 노래에 \n팔베고 스르르르 잠이 듭니다 \n\n아기는 잠을 곤히 자고 있지만 \n갈매기 울음소리 맘이 설레여 \n다 못찬 굴바구니 머리에 이고 \n엄마는 모랫길을 달려-옵니다 \n",
+              transmissionTime: new Date(hourBefore(0)),
             },
             {
               id: "2",
