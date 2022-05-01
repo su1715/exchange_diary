@@ -1,69 +1,95 @@
 .back {
-	background-color:rgba(0, 0, 0, 0.5);/*까만색(0,0,0) 80% 불투명도*/
-	height: 100vh;
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /*까만색(0,0,0) 80% 불투명도*/
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .paper {
-	position: fixed;
-	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	background: white;
-	width: 35rem;
-	height: 50rem;
-	border-radius: 1.7rem;
-	padding-top: 35px;
-	padding-bottom: 20px;
-	padding-inline: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 35rem;
+  height: 50rem;
+  border-radius: 1.7rem;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  padding-inline: 30px;
 
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .textTitle {
-	font-size: 2.5rem;
-	margin-block: 0.5rem;
+  font-size: 2.5rem;
+  margin-block: 0.5rem;
 }
 
 .textDate {
-	font-size: 1.5rem;
-	color: #616161;
+  font-size: 1.5rem;
+  color: #616161;
 }
 
 .hr {
-	margin-top: 20px;
-	margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .textBox {
-	width: 100%;
-	height: 75%;
-	font-size: 24px;
+  width: 100%;
+  height: 75%;
+  font-size: 24px;
 }
 
 .buttons {
-	position: absolute; 
-	right: 0px; 
-	bottom: 0px;
-	margin-bottom: 30px;
-	margin-inline: 30px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin-bottom: 30px;
+  margin-inline: 30px;
 }
 
 .cancelButton {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 
 .textarea {
-	width: 100%;
-	height: 31rem;
-	font-size: 24px;
-	border: solid 2px #b0b0b0;
-	border-radius: 10px;
-	resize: none;
-	padding: 1rem;
+  width: 100%;
+  height: 31rem;
+  font-size: 24px;
+  border: solid 2px #b0b0b0;
+  border-radius: 10px;
+  resize: none;
+  padding: 1rem;
 }
 .textarea:focus {
-	outline:none;
+  outline: none;
+}
+
+.searchInput {
+  width: 20rem;
+  font-size: 1.4rem;
+  border: none;
+  border-bottom: 2px solid rgb(154, 154, 154);
+  padding: 10px;
+  margin-bottom: 1.3rem;
+}
+.searchInput:focus {
+  outline: none;
+}
+
+.result {
+  width: 100%;
+  height: 30rem;
+  padding: 10px;
+  font-size: 1.3rem;
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

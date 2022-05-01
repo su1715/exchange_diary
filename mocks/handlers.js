@@ -7,26 +7,26 @@ const user = {
   name: "박수정",
   nickname: "빛나는감자",
   level: 2,
-  point: 30
+  point: 30,
 };
 
 const friendsList = [
   {
     id: "seastar",
-    nickname: "바다별"
+    nickname: "바다별",
   },
   {
     id: "skybarley",
-    nickname: "하늘보리"
+    nickname: "하늘보리",
   },
   {
     id: "bleedingheart",
-    nickname: "금낭화"
+    nickname: "금낭화",
   },
   {
     id: "notyourfriend",
-    nickname: "샤이가이"
-  }
+    nickname: "샤이가이",
+  },
 ];
 
 export const handlers = [
@@ -37,15 +37,15 @@ export const handlers = [
         ctx.status(200),
         ctx.json({
           result: "success",
-          friend: { id, nickname: `닉네임${friends.length}` }
+          friend: { id, nickname: `닉네임${friendsList.length}` },
         })
       );
     else return res(ctx.status(200), ctx.json({ result: "fail" }));
   }),
   rest.post("http://localhost:3000/api/friends/add", async (req, res, ctx) => {
     const { id } = req.body;
-    friendsList.add({ id, nickname: `닉네임${friendsList.length}` });
-    return res(ctx.status(200));
+    friendsList.push({ id, nickname: `닉네임${friendsList.length}` });
+    return res(ctx.status(200), ctx.json({ result: "success" }));
   }),
 
   rest.get("http://localhost:3000/api/me", async (req, res, ctx) => {
@@ -56,7 +56,7 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        friends: friendsList
+        friends: friendsList,
       })
     );
   }),
@@ -76,10 +76,10 @@ export const handlers = [
                 "sujpark",
                 "skybarley",
                 "bleedingheart",
-                "notyourfriend"
+                "notyourfriend",
               ],
               text: "오늘도 화이팅!!! 다음 주말에 여행갈 생각하니 너무 신난다!",
-              transmissionTime: new Date(hourBefore(25))
+              transmissionTime: new Date(hourBefore(25)),
             },
             {
               id: "5",
@@ -89,22 +89,20 @@ export const handlers = [
                 "seastar",
                 "sujpark",
                 "bleedingheart",
-                "notyourfriend"
+                "notyourfriend",
               ],
-              text:
-                "일기를 쓰는 친구들이 많지 않아서 슬프다. 오늘의 일기를 쓰고 서로에게 공유했으면 좋겠다.",
-              transmissionTime: new Date(hourBefore(2))
+              text: "일기를 쓰는 친구들이 많지 않아서 슬프다. 오늘의 일기를 쓰고 서로에게 공유했으면 좋겠다.",
+              transmissionTime: new Date(hourBefore(2)),
             },
             {
               id: "6",
               caller: "bleedingheart",
               caller_nickname: "금낭화",
               receiver: ["seastar", "skybarley", "sujpark", "notyourfriend"],
-              text:
-                "당분간 잠수탑니다.\n 인생이 많이 고되고 힘드네요. 잠시 쉬었다 올테니 너무 걱정하지는 마세요",
-              transmissionTime: new Date(hourBefore(12))
-            }
-          ]
+              text: "당분간 잠수탑니다.\n 인생이 많이 고되고 힘드네요. 잠시 쉬었다 올테니 너무 걱정하지는 마세요",
+              transmissionTime: new Date(hourBefore(12)),
+            },
+          ],
         })
       );
     }
@@ -125,10 +123,10 @@ export const handlers = [
                 "seastar",
                 "skybarley",
                 "bleedingheart",
-                "notyourfriend"
+                "notyourfriend",
               ],
               text: "여러분 오늘도 힘내세요 ㅎㅎ",
-              transmissionTime: new Date(hourBefore(72))
+              transmissionTime: new Date(hourBefore(72)),
             },
             {
               id: "2",
@@ -138,11 +136,10 @@ export const handlers = [
                 "seastar",
                 "skybarley",
                 "bleedingheart",
-                "notyourfriend"
+                "notyourfriend",
               ],
-              text:
-                "그제도 코딩, 어제도 코딩, 오늘도 코딩, 내일도 코딩, 내년도 코딩... 평생 코딩...",
-              transmissionTime: new Date(hourBefore(24))
+              text: "그제도 코딩, 어제도 코딩, 오늘도 코딩, 내일도 코딩, 내년도 코딩... 평생 코딩...",
+              transmissionTime: new Date(hourBefore(24)),
             },
             {
               id: "3",
@@ -152,12 +149,12 @@ export const handlers = [
                 "seastar",
                 "skybarley",
                 "bleedingheart",
-                "notyourfriend"
+                "notyourfriend",
               ],
               text: "어머니는 짜장면이 싫다고 하셨어",
-              transmissionTime: new Date(hourBefore(48))
-            }
-          ]
+              transmissionTime: new Date(hourBefore(48)),
+            },
+          ],
         })
       );
     }
@@ -165,7 +162,7 @@ export const handlers = [
 
   rest.get("/api/signin", async (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ token: "hi" }));
-  })
+  }),
 ];
 
 function getDateAfter12Hour(date) {

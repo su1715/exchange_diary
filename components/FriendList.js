@@ -1,21 +1,21 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { friendsState, settingFriendState } from "../util/recoil";
+import { friendsState, searchFriendState } from "../util/recoil";
 import styles from "../styles/FriendList.module.css";
-import { FiSettings } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 
 export default function FriendList() {
   const friends = useRecoilValue(friendsState);
-  const setSettingFriend = useSetRecoilState(settingFriendState);
+  const setSearchFriend = useSetRecoilState(searchFriendState);
   const onSettingClick = () => {
-    setSettingFriend(true);
+    setSearchFriend(true);
   };
   return (
     <div className={`${styles.list} ${styles.left}`}>
       <div className={styles.titleWrapper}>
         <h2 className={styles.title}>친구 목록</h2>
-        <FiSettings size={25} onClick={onSettingClick} />
+        <FiSearch size={25} onClick={onSettingClick} />
       </div>
-      {friends.map(friend => (
+      {friends.map((friend) => (
         <div className={styles.friend} key={friend.id}>
           {friend.nickname}
         </div>

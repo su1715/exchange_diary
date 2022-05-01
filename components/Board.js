@@ -4,7 +4,7 @@ import {
   newDiaryState,
   isTodayState,
   readPaperState,
-  settingFriendState
+  searchFriendState,
 } from "../util/recoil";
 import UserInfo from "./UserInfo";
 import MyCalendar from "./MyCalendar";
@@ -17,13 +17,14 @@ import SigninInfo from "./SigninInfo";
 import InfoLayout from "./layouts/InfoLayout";
 import MainLayout from "./layouts/MainLayout";
 import ReadPaper from "./ReadPaper";
-import SettingFriend from "./SettingFriend";
+import SearchFriend from "./SearchFriend";
 
 export default function Board() {
   const { data: session } = useSession();
   const newDiary = useRecoilValue(newDiaryState);
   const isToday = useRecoilValue(isTodayState);
   const readPaper = useRecoilValue(readPaperState);
+  const searchFriend = useRecoilValue(searchFriendState);
 
   if (session) {
     return (
@@ -41,7 +42,7 @@ export default function Board() {
         </div>
         {newDiary && isToday ? <NewDiary /> : null}
         {readPaper ? <ReadPaper paperId={readPaper} /> : null}
-        {settingFriendState ? <SettingFriend /> : null}
+        {searchFriend ? <SearchFriend /> : null}
       </div>
     );
   }

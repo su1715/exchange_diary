@@ -2,49 +2,49 @@ import { atom, selector } from "recoil";
 
 export const userState = atom({
   key: "userState",
-  default: {}
+  default: {},
 });
 
 export const friendsState = atom({
   key: "friendsState",
-  default: []
+  default: [],
 });
 
 export const dateState = atom({
   key: "dateState",
-  default: new Date()
+  default: new Date(),
 });
 
 export const newDiaryState = atom({
   key: "newDiaryState",
-  default: false
+  default: false,
 });
 
 export const friendDiariesState = atom({
   key: "friendDiariesState",
-  default: []
+  default: [],
 });
 
 export const myDiariesState = atom({
   key: "myDiariesState",
-  default: []
+  default: [],
 });
 
 export const readPaperState = atom({
   key: "readPaperState",
-  default: null
+  default: null,
 });
 
-export const settingFriendState = atom({
-  key: "settingFriendState",
-  default: false
+export const searchFriendState = atom({
+  key: "searchFriendState",
+  default: false,
 });
 
 export const allDiariesState = selector({
   key: "allDiariesState",
   get: ({ get }) => {
     return [...get(myDiariesState), ...get(friendDiariesState)];
-  }
+  },
 });
 
 export const isTodayState = selector({
@@ -55,5 +55,5 @@ export const isTodayState = selector({
     const seconds = elapsed / 1000;
     if (seconds / (60 * 60) < 24 && seconds > 0) return true;
     return false;
-  }
+  },
 });
