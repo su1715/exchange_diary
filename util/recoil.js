@@ -30,13 +30,18 @@ export const myDiariesState = atom({
   default: []
 });
 
-export const paperState = atom({
-  key: "paperState",
+export const readPaperState = atom({
+  key: "readPaperState",
   default: null
 });
 
-export const totalPapersState = selector({
-  key: "totalPapersState",
+export const settingFriendState = atom({
+  key: "settingFriendState",
+  default: false
+});
+
+export const allDiariesState = selector({
+  key: "allDiariesState",
   get: ({ get }) => {
     return [...get(myDiariesState), ...get(friendDiariesState)];
   }

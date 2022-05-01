@@ -2,7 +2,7 @@ import { rest } from "msw";
 
 export const __MOCK_JWT_KEY = "JavaScriptIsAwesome!";
 
-let user = {
+const user = {
   id: "sujpark",
   name: "박수정",
   nickname: "빛나는감자",
@@ -10,7 +10,44 @@ let user = {
   point: 30
 };
 
+const friendsList = [
+  {
+    id: "seastar",
+    nickname: "바다별"
+  },
+  {
+    id: "skybarley",
+    nickname: "하늘보리"
+  },
+  {
+    id: "bleedingheart",
+    nickname: "금낭화"
+  },
+  {
+    id: "notyourfriend",
+    nickname: "샤이가이"
+  }
+];
+
 export const handlers = [
+  rest.post("http://localhost:3000/api/friends/find", async (req, res, ctx) => {
+    const { id } = req.body;
+    if (id === "abc" || id === "def" || id === "ghi")
+      return res(
+        ctx.status(200),
+        ctx.json({
+          result: "success",
+          friend: { id, nickname: `닉네임${friends.length}` }
+        })
+      );
+    else return res(ctx.status(200), ctx.json({ result: "fail" }));
+  }),
+  rest.post("http://localhost:3000/api/friends/add", async (req, res, ctx) => {
+    const { id } = req.body;
+    friendsList.add({ id, nickname: `닉네임${friendsList.length}` });
+    return res(ctx.status(200));
+  }),
+
   rest.get("http://localhost:3000/api/me", async (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(user));
   }),
@@ -19,24 +56,7 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        friends: [
-          {
-            id: "seastar",
-            nickname: "바다별"
-          },
-          {
-            id: "skybarley",
-            nickname: "하늘보리"
-          },
-          {
-            id: "bleedingheart",
-            nickname: "금낭화"
-          },
-          {
-            id: "notyourfriend",
-            nickname: "글쎄요"
-          }
-        ]
+        friends: friendsList
       })
     );
   }),

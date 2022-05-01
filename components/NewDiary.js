@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userState, newDiaryState } from "../util/recoil";
 import { dateToString } from "../util/date";
-import paperStyle from "../styles/Paper.module.css";
+import style from "../styles/ReadPaper.module.css";
 import ModalLayout from "./layouts/ModalLayout";
 
 export default function NewDiary() {
@@ -34,22 +34,22 @@ export default function NewDiary() {
 
   return (
     <ModalLayout>
-      <h1 className={paperStyle.textTitle}>{user.nickname}님의 일기</h1>
-      <span className={paperStyle.textDate}>{dateToString(new Date())}</span>
-      <hr className={paperStyle.hr} />
+      <h1 className={style.textTitle}>{user.nickname}님의 일기</h1>
+      <span className={style.textDate}>{dateToString(new Date())}</span>
+      <hr className={style.hr} />
       <br />
       <div>
         <textarea
           autofocus
           name="text"
-          className={paperStyle.textarea}
+          className={style.textarea}
           value={diary.text}
           onChange={onChange}
         ></textarea>
       </div>
-      <div className={paperStyle.buttons}>
+      <div className={style.buttons}>
         <button
-          className={"buttonSpecial " + paperStyle.cancelButton}
+          className={"buttonSpecial " + style.cancelButton}
           onClick={onClick}
         >
           취소
