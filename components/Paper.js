@@ -20,7 +20,7 @@ export default function Paper({ paperId }) {
       </span>
       <hr className={paperStyle.hr} />
       <div className={paperStyle.textBox}>{text}</div>
-      <button className={paperStyle.closeButton} onClick={onClick}>
+      <button className={paperStyle.buttons} onClick={onClick}>
         닫기
       </button>
     </div>

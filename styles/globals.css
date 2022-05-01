@@ -53,7 +53,7 @@ a {
 }
 
 .react-calendar {
-  width : 40rem;
+  width : 35rem;
 }
 
 .react-calendar__navigation {
@@ -77,7 +77,7 @@ a {
   border-radius: 7px;
   color: white;
   padding: 5px 0;
-  height: 4rem;
+  height: 3.5rem;
   font-size: 1.3rem;
 }
 

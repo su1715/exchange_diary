@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useRecoilValue } from "recoil";
-import { userState, friendsState } from "../util/recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { userState, newLetterState } from "../util/recoil";
+import paperStyle from "../styles/Paper.module.css";
+import { dateToString } from "../util/date";
 
 export default function Letter() {
   const user = useRecoilValue(userState);
-  const friends = useRecoilValue(friendsState);
+  const setNewLetter = useSetRecoilState(newLetterState);
   const [letter, setLetter] = useState({
     caller: user.id,
     receiver: "",
@@ -13,6 +15,10 @@ export default function Letter() {
 
   const onChange = ({ target }) => {
     setLetter(prev => ({ ...prev, [target.name]: target.value }));
+  };
+
+  const onClick = () => {
+    setNewLetter(false);
   };
 
   const onSend = () => {
@@ -26,23 +32,31 @@ export default function Letter() {
   };
 
   return (
-    <div>
-      <span>보내는 사람: {user.nickname}</span>
+    <div className={paperStyle.paper}>
+      <h1 className={paperStyle.textTitle}>{user.nickname}님의 일기</h1>
+      <span className={paperStyle.textDate}>{dateToString(new Date())}</span>
+      <hr className={paperStyle.hr} />
       <br />
-      <span>
-        받는 사람:{" "}
-        <select name="receiver" value={letter.receiver} onChange={onChange}>
-          <option value="">받을 사람을 골라주세요!</option>
-          {friends.map(friend => (
-            <option key={friend.id} value={friend.id}>
-              {friend.nickname}
-            </option>
-          ))}
-        </select>
-      </span>
-      <br />
-      <textarea name="text" value={letter.text} onChange={onChange}></textarea>
-      <button onClick={onSend}>전송</button>
+      <div>
+        <textarea
+          autofocus
+          name="text"
+          className={paperStyle.textarea}
+          value={letter.text}
+          onChange={onChange}
+        ></textarea>
+      </div>
+      <div className={paperStyle.buttons}>
+        <button
+          className={"button " + paperStyle.cancelButton}
+          onClick={onClick}
+        >
+          취소
+        </button>
+        <button className="button" onClick={onSend}>
+          작성
+        </button>
+      </div>
     </div>
   );
 }

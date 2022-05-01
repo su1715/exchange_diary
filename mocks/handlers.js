@@ -52,33 +52,37 @@ export const handlers = [
               id: "4",
               caller: "seastar",
               caller_nickname: "하늘별",
-              receiver: "sujpark",
-              text: "오늘도 화이팅!!!",
+              receiver: [
+                "sujpark",
+                "skybarley",
+                "bleedingheart",
+                "notyourfriend"
+              ],
+              text: "오늘도 화이팅!!! 다음 주말에 여행갈 생각하니 너무 신난다!",
               transmissionTime: new Date(hourBefore(25))
             },
             {
               id: "5",
               caller: "skybarley",
               caller_nickname: "하늘보리",
-              receiver: "sujpark",
-              text: "잘 지내나요? 편지 좀 보내주세요",
+              receiver: [
+                "seastar",
+                "sujpark",
+                "bleedingheart",
+                "notyourfriend"
+              ],
+              text:
+                "일기를 쓰는 친구들이 많지 않아서 슬프다. 오늘의 일기를 쓰고 서로에게 공유했으면 좋겠다.",
               transmissionTime: new Date(hourBefore(2))
             },
             {
               id: "6",
               caller: "bleedingheart",
               caller_nickname: "금낭화",
-              receiver: "sujpark",
-              text: "당분간 잠수탑니다. 연락하지마세요~",
+              receiver: ["seastar", "skybarley", "sujpark", "notyourfriend"],
+              text:
+                "당분간 잠수탑니다. 인생이 많이 고되고 힘드네요. 잠시 쉬었다 올테니 너무 걱정하지는 마세요",
               transmissionTime: new Date(hourBefore(12))
-            },
-            {
-              id: "7",
-              caller: "bleedingheart",
-              caller_nickname: "금낭화",
-              receiver: "sujpark",
-              text: "절교해요~",
-              transmissionTime: new Date(hourBefore(9))
             }
           ]
         })
@@ -97,25 +101,41 @@ export const handlers = [
               id: "1",
               caller: "sujpark",
               caller_nickname: "빛나는감자",
-              receiver: "seastar",
-              text: "그래요 화이팅!!!",
-              transmissionTime: new Date(hourBefore(13))
+              receiver: [
+                "seastar",
+                "skybarley",
+                "bleedingheart",
+                "notyourfriend"
+              ],
+              text: "여러분 오늘도 힘내세요 ㅎㅎ",
+              transmissionTime: new Date(hourBefore(18))
             },
             {
               id: "2",
               caller: "sujpark",
               caller_nickname: "빛나는감자",
-              receiver: "skybarley",
-              text: "옛다 편지~",
-              transmissionTime: new Date(hourBefore(14))
+              receiver: [
+                "seastar",
+                "skybarley",
+                "bleedingheart",
+                "notyourfriend"
+              ],
+              text:
+                "그제도 코딩, 어제도 코딩, 오늘도 코딩, 내일도 코딩, 내년도 코딩... 평생 코딩...",
+              transmissionTime: new Date(hourBefore(15))
             },
             {
               id: "3",
               caller: "sujpark",
               caller_nickname: "빛나는감자",
-              receiver: "bleedingheart",
-              text: "친삭하겠습니다^^",
-              transmissionTime: new Date(hourBefore(12))
+              receiver: [
+                "seastar",
+                "skybarley",
+                "bleedingheart",
+                "notyourfriend"
+              ],
+              text: "어머니는 짜장면이 싫다고 하셨어",
+              transmissionTime: new Date(hourBefore(36))
             }
           ]
         })

@@ -1,7 +1,8 @@
 .userInfo {
-	padding: 10px;
+	padding-inline: 2rem;
+	padding-block: 1rem;
 	background-color: white;
-	border-radius: 0.5rem;
+	border-radius: 0.7rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;

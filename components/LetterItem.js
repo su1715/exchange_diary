@@ -13,7 +13,11 @@ export default function LetterItem({ letter }) {
   };
   return (
     <div onClick={onClick}>
-      {timeRemaining ? timeRemaining : "일기가 도착했습니다!"}
+      {timeRemaining ? (
+        <div>일기가 전송중입니다. {timeRemaining} 후에 도착합니다</div>
+      ) : (
+        "일기가 도착했습니다!"
+      )}
     </div>
   );
 }
