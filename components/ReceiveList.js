@@ -1,10 +1,9 @@
 import { useRecoilValue } from "recoil";
-import { userState, friendsState } from "../util/recoil";
+import { friendsState } from "../util/recoil";
 import Friend from "./Friend";
 import receiveListStyles from "../styles/receiveList.module.css";
 
 export default function ReceiveList() {
-  const user = useRecoilValue(userState);
   const friends = useRecoilValue(friendsState);
   const friendList = friends.map(friend => (
     <Friend key={friend.id} friend={friend} />

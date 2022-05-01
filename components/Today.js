@@ -4,13 +4,12 @@ import {
   newLetterState,
   isTodayState,
   sendLettersState,
-  paperState,
-  friendsState
+  paperState
 } from "../util/recoil";
 import { useEffect } from "react";
 import Paper from "./Paper";
 import LetterItem from "./LetterItem";
-import { dateToString } from "../util/date";
+import { dateToString, isSameDate } from "../util/date";
 import todayStyles from "../styles/Today.module.css";
 
 export default function Today() {
@@ -51,12 +50,4 @@ export default function Today() {
       {paper ? <Paper paperId={paper} /> : null}
     </div>
   );
-}
-
-function isSameDate(date1, date2) {
-  date1 = new Date(date1);
-  if (date1.getFullYear() !== date2.getFullYear()) return false;
-  if (date1.getMonth() !== date2.getMonth()) return false;
-  if (date1.getDate() !== date2.getDate()) return false;
-  return true;
 }

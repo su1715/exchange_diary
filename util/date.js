@@ -7,3 +7,11 @@ export const dateToString = dateObj => {
 
   return `${year}년 ${month}월 ${date}일 ${day}요일`;
 };
+
+export const isSameDate = (date1, date2) => {
+  date1 = new Date(date1);
+  if (date1.getFullYear() !== date2.getFullYear()) return false;
+  if (date1.getMonth() !== date2.getMonth()) return false;
+  if (date1.getDate() !== date2.getDate()) return false;
+  return true;
+};
