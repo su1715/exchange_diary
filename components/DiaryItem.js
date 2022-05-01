@@ -1,18 +1,18 @@
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import { paperState, userState } from "../util/recoil";
-import itemStyles from "../styles/LetterItem.module.css";
+import { dateFormatting } from "../util/date";
+import itemStyles from "../styles/DiaryItem.module.css";
 
-export default function LetterItem({ letter, big }) {
-  const { id: letterId, transmissionTime, caller } = letter;
+export default function DiaryItem({ diary, big }) {
+  const { id: diaryId, transmissionTime, caller } = diary;
   const timeRemaining = dateFormatting(transmissionTime);
   const setPaperState = useSetRecoilState(paperState);
   const { id: userId } = useRecoilValue(userState);
 
   const onClick = check => {
-    console.log("check:", check);
     if (check) return;
     if (timeRemaining && userId !== caller) return;
-    setPaperState(letterId);
+    setPaperState(diaryId);
   };
   return (
     <div onClick={() => onClick(big)} className={big ? itemStyles.bigText : ""}>
@@ -32,17 +32,4 @@ export default function LetterItem({ letter, big }) {
       ) : null}
     </div>
   );
-}
-
-function dateFormatting(time) {
-  const sendDate = new Date(time);
-  let getDate = sendDate;
-  getDate.setHours(getDate.getHours() + 12);
-  const nowDate = new Date();
-  const elapsed = (getDate - nowDate) / 1000;
-  const min = Math.floor(elapsed / 60) % 60;
-  const hour = Math.floor(Math.floor(elapsed / 60) / 60);
-  let format = hour > 0 ? `${hour}시간` : "";
-  format += min > 0 ? `${min}분` : "";
-  return format;
 }

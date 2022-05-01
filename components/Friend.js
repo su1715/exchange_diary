@@ -1,27 +1,27 @@
-import LetterItem from "./LetterItem";
+import DiaryItem from "./DiaryItem";
 import { useRecoilValue } from "recoil";
-import { receiveLettersState, dateState } from "../util/recoil";
+import { friendDiariesState, dateState } from "../util/recoil";
 import friendStyles from "../styles/Friend.module.css";
 import { isSameDate } from "../util/date";
 
 export default function Friend({ friend }) {
   const date = useRecoilValue(dateState);
-  const receiveLetters = useRecoilValue(receiveLettersState);
-  const letterList = receiveLetters.filter(
-    letter => letter.caller === friend.id
+  const friendDiaries = useRecoilValue(friendDiariesState);
+  const friendDiariyList = friendDiaries.filter(
+    diary => diary.caller === friend.id
   );
-  const todayLetterList = letterList.filter(letter =>
-    isSameDate(letter.transmissionTime, date)
+  const todayDiaryList = friendDiariyList.filter(diary =>
+    isSameDate(diary.transmissionTime, date)
   );
-  const letterItemList = todayLetterList.map(letter => (
-    <LetterItem key={letter.id} letter={letter} />
+  const diaryItemList = todayDiaryList.map(diary => (
+    <DiaryItem key={diary.id} diary={diary} />
   ));
   return (
     <>
-      {letterItemList.length > 0 ? (
+      {diaryItemList.length > 0 ? (
         <div className={friendStyles.friend}>
           <div className={friendStyles.nickname}>{friend.nickname}</div>
-          <div className={friendStyles.item}>{letterItemList}</div>
+          <div className={friendStyles.item}>{diaryItemList}</div>
         </div>
       ) : null}
     </>

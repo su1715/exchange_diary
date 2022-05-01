@@ -1,33 +1,33 @@
 import { useRecoilValue, useRecoilState } from "recoil";
 import {
   dateState,
-  newLetterState,
+  newDiaryState,
   isTodayState,
-  sendLettersState,
+  myDiariesState,
   paperState
 } from "../util/recoil";
 import { useEffect } from "react";
 import Paper from "./Paper";
-import LetterItem from "./LetterItem";
+import DiaryItem from "./DiaryItem";
 import { dateToString, isSameDate } from "../util/date";
 import todayStyles from "../styles/Today.module.css";
 
 export default function Today() {
   const date = useRecoilValue(dateState);
-  const sendLetters = useRecoilValue(sendLettersState);
-  const [newLetter, setNewLetter] = useRecoilState(newLetterState);
+  const myDiaries = useRecoilValue(myDiariesState);
+  const [newDiary, setNewDiary] = useRecoilState(newDiaryState);
   const isToday = useRecoilValue(isTodayState);
   const paper = useRecoilValue(paperState);
-  const todayDiary = sendLetters.find(letter =>
-    isSameDate(letter.transmissionTime, date)
+  const todayDiary = myDiaries.find(diary =>
+    isSameDate(diary.transmissionTime, date)
   );
 
   useEffect(() => {
-    if (!isToday) setNewLetter(false);
+    if (!isToday) setNewDiary(false);
   }, [isToday]);
 
-  const onNewLetterClick = () => {
-    setNewLetter(!newLetter);
+  const onNewDiaryClick = () => {
+    setNewDiary(!newDiary);
   };
 
   return (
@@ -35,7 +35,7 @@ export default function Today() {
       <h1 className={todayStyles.title}>{dateToString(date)}</h1>
       {todayDiary && (
         <div key={todayDiary.id}>
-          <LetterItem letter={todayDiary} big />
+          <DiaryItem diary={todayDiary} big />
         </div>
       )}
       {!todayDiary && isToday ? (
@@ -45,8 +45,8 @@ export default function Today() {
           </div>
           <button
             className="buttonSpecial"
-            onClick={onNewLetterClick}
-            disabled={newLetter}
+            onClick={onNewDiaryClick}
+            disabled={newDiary}
           >
             일기 쓰기
           </button>

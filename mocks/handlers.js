@@ -42,12 +42,12 @@ export const handlers = [
   }),
 
   rest.get(
-    "http://localhost:3000/api/me/letters/receive",
+    "http://localhost:3000/api/me/diaries/receive",
     async (req, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
-          letters: [
+          diaries: [
             {
               id: "4",
               caller: "seastar",
@@ -91,12 +91,12 @@ export const handlers = [
   ),
 
   rest.get(
-    "http://localhost:3000/api/me/letters/send",
+    "http://localhost:3000/api/me/diaries/send",
     async (req, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
-          letters: [
+          diaries: [
             {
               id: "1",
               caller: "sujpark",
@@ -108,7 +108,7 @@ export const handlers = [
                 "notyourfriend"
               ],
               text: "여러분 오늘도 힘내세요 ㅎㅎ",
-              transmissionTime: new Date(hourBefore(6))
+              transmissionTime: new Date(hourBefore(72))
             },
             {
               id: "2",

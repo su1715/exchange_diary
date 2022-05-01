@@ -1,0 +1,13 @@
+.info {
+	padding-inline: 2rem;
+	padding-block: 1rem;
+	background-color: white;
+	border-radius: 0.7rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	width : 100%;
+	margin-block: 1rem;
+	font-size: 1.2rem;
+}

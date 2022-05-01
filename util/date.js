@@ -15,3 +15,16 @@ export const isSameDate = (date1, date2) => {
   if (date1.getDate() !== date2.getDate()) return false;
   return true;
 };
+
+export const dateFormatting = time => {
+  const sendDate = new Date(time);
+  let getDate = sendDate;
+  getDate.setHours(getDate.getHours() + 12);
+  const nowDate = new Date();
+  const elapsed = (getDate - nowDate) / 1000;
+  const min = Math.floor(elapsed / 60) % 60;
+  const hour = Math.floor(Math.floor(elapsed / 60) / 60);
+  let format = hour > 0 ? `${hour}시간` : "";
+  format += min > 0 ? `${min}분` : "";
+  return format;
+};

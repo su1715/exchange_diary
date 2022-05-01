@@ -15,18 +15,18 @@ export const dateState = atom({
   default: new Date()
 });
 
-export const newLetterState = atom({
-  key: "newLetterState",
+export const newDiaryState = atom({
+  key: "newDiaryState",
   default: false
 });
 
-export const receiveLettersState = atom({
-  key: "receiveLetterState",
+export const friendDiariesState = atom({
+  key: "friendDiariesState",
   default: []
 });
 
-export const sendLettersState = atom({
-  key: "sendLetterState",
+export const myDiariesState = atom({
+  key: "myDiariesState",
   default: []
 });
 
@@ -38,7 +38,7 @@ export const paperState = atom({
 export const totalPapersState = selector({
   key: "totalPapersState",
   get: ({ get }) => {
-    return [...get(sendLettersState), ...get(receiveLettersState)];
+    return [...get(myDiariesState), ...get(friendDiariesState)];
   }
 });
 
