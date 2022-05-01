@@ -9,8 +9,10 @@
 	align-items: baseline;
 	width : 100%;
 	margin-block: 1rem;
+	font-size: 1.2rem;
 }
 
 .nickname {
-	font-size: 1.3rem;
+	font-size: 1.4rem;
+	font-weight: 500;
 }

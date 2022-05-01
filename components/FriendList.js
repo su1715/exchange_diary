@@ -1,19 +1,20 @@
 import { useRecoilValue } from "recoil";
-import { userState, friendsState } from "../util/recoil";
-import Friend from "./Friend";
-import friendListStyles from "../styles/FriendList.module.css";
+import { friendsState } from "../util/recoil";
+import styles from "../styles/FriendList.module.css";
+import { FiSettings } from "react-icons/fi";
 
 export default function FriendList() {
-  const user = useRecoilValue(userState);
   const friends = useRecoilValue(friendsState);
-  const friendList = friends.map(friend => (
-    <Friend key={friend.id} friend={friend} />
-  ));
   return (
-    <div className={friendListStyles.friendList}>
-      <h2 className={friendListStyles.title}>친구 목록</h2>
+    <div className={`${styles.list} ${styles.left}`}>
+      <div className={styles.titleWrapper}>
+        <h2 className={styles.title}>친구 목록</h2>
+        <FiSettings size={25} />
+      </div>
       {friends.map(friend => (
-        <div key={friend.id}>{friend.nickname}</div>
+        <div className={styles.friend} key={friend.id}>
+          {friend.nickname}
+        </div>
       ))}
       {/* {friendList.length > 0 ? friendList : "친구를 추가해볼까요?"} */}
     </div>

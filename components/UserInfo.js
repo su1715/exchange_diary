@@ -10,12 +10,12 @@ export default function UserInfo() {
     return (
       <div className={userInfoStyles.userInfo}>
         <div>
-          <span className={userInfoStyles.nickname}>{user.nickname}</span>님
+          <span className={userInfoStyles.nickname}>{user.nickname} </span>님
         </div>
-        <div>Id : {user.id}</div>
-        <div>Point : {user.point}</div>
+        <div>{user.id}</div>
+        <div>{user.point} point</div>
         <button className="button" onClick={signOut}>
-          Sign Out
+          Sign out
         </button>
       </div>
     );
@@ -24,7 +24,7 @@ export default function UserInfo() {
     <div className={userInfoStyles.userInfo}>
       로그인이 필요합니다{" "}
       <button className="button" onClick={signIn}>
-        Sign Up
+        Sign in
       </button>
     </div>
   );

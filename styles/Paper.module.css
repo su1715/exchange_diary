@@ -1,3 +1,11 @@
+.back {
+	background-color:rgba(0, 0, 0, 0.5);/*까만색(0,0,0) 80% 불투명도*/
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
 .paper {
 	position: fixed;
 	top: 50%;
@@ -49,7 +57,7 @@
 
 .textarea {
 	width: 100%;
-	height: 32rem;
+	height: 31rem;
 	font-size: 24px;
 	border: solid 2px #b0b0b0;
 	border-radius: 10px;

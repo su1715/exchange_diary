@@ -1,7 +1,7 @@
 import { useRecoilValue } from "recoil";
 import { friendsState } from "../util/recoil";
 import Friend from "./Friend";
-import receiveListStyles from "../styles/receiveList.module.css";
+import styles from "../styles/FriendList.module.css";
 
 export default function ReceiveList() {
   const friends = useRecoilValue(friendsState);
@@ -9,8 +9,8 @@ export default function ReceiveList() {
     <Friend key={friend.id} friend={friend} />
   ));
   return (
-    <div className={receiveListStyles.receiveList}>
-      <h2 className={receiveListStyles.title}>친구들의 일기</h2>
+    <div className={`${styles.list} ${styles.right}`}>
+      <h2 className={styles.title}>친구들의 일기</h2>
       {friendList.length > 0 ? friendList : "친구를 추가해볼까요?"}
     </div>
   );

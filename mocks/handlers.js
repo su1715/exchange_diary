@@ -81,7 +81,7 @@ export const handlers = [
               caller_nickname: "금낭화",
               receiver: ["seastar", "skybarley", "sujpark", "notyourfriend"],
               text:
-                "당분간 잠수탑니다. 인생이 많이 고되고 힘드네요. 잠시 쉬었다 올테니 너무 걱정하지는 마세요",
+                "당분간 잠수탑니다.\n 인생이 많이 고되고 힘드네요. 잠시 쉬었다 올테니 너무 걱정하지는 마세요",
               transmissionTime: new Date(hourBefore(12))
             }
           ]
@@ -108,7 +108,7 @@ export const handlers = [
                 "notyourfriend"
               ],
               text: "여러분 오늘도 힘내세요 ㅎㅎ",
-              transmissionTime: new Date(hourBefore(18))
+              transmissionTime: new Date(hourBefore(6))
             },
             {
               id: "2",
@@ -122,7 +122,7 @@ export const handlers = [
               ],
               text:
                 "그제도 코딩, 어제도 코딩, 오늘도 코딩, 내일도 코딩, 내년도 코딩... 평생 코딩...",
-              transmissionTime: new Date(hourBefore(15))
+              transmissionTime: new Date(hourBefore(24))
             },
             {
               id: "3",
@@ -135,7 +135,7 @@ export const handlers = [
                 "notyourfriend"
               ],
               text: "어머니는 짜장면이 싫다고 하셨어",
-              transmissionTime: new Date(hourBefore(36))
+              transmissionTime: new Date(hourBefore(48))
             }
           ]
         })

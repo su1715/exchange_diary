@@ -18,7 +18,7 @@ export default function Today() {
   const [newLetter, setNewLetter] = useRecoilState(newLetterState);
   const isToday = useRecoilValue(isTodayState);
   const paper = useRecoilValue(paperState);
-  const todayDiary = sendLetters.filter(letter =>
+  const todayDiary = sendLetters.find(letter =>
     isSameDate(letter.transmissionTime, date)
   );
 
@@ -33,19 +33,24 @@ export default function Today() {
   return (
     <div className={todayStyles.today}>
       <h1 className={todayStyles.title}>{dateToString(date)}</h1>
-      {todayDiary.length > 0 &&
-        todayDiary.map(letter => (
-          <div key={letter.id}>
-            <LetterItem key={letter.id} letter={letter} />
+      {todayDiary && (
+        <div key={todayDiary.id}>
+          <LetterItem letter={todayDiary} big />
+        </div>
+      )}
+      {!todayDiary && isToday ? (
+        <div className={todayStyles.noDiary}>
+          <div className={todayStyles.text}>
+            아직 일기를 작성하지 않았습니다
           </div>
-        ))}
-      {todayDiary.length === 0 && isToday ? (
-        <>
-          <div>아직 일기를 작성하지 않았습니다.</div>
-          <button className="button" onClick={onNewLetterClick}>
-            {newLetter ? "취소" : "일기쓰기"}
+          <button
+            className="buttonSpecial"
+            onClick={onNewLetterClick}
+            disabled={newLetter}
+          >
+            일기 쓰기
           </button>
-        </>
+        </div>
       ) : null}
       {paper ? <Paper paperId={paper} /> : null}
     </div>

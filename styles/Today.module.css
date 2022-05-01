@@ -1,8 +1,25 @@
 .today {
 	height: 100%;
 	width: 25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .title {
 	margin-block: 0;
+	color : #5c5c5c;
+}
+
+.noDiary {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	top: 30%;
+}
+
+.text {
+	font-size: 1.3rem;
+	margin-bottom :1.3rem;
 }

@@ -32,30 +32,32 @@ export default function Letter() {
   };
 
   return (
-    <div className={paperStyle.paper}>
-      <h1 className={paperStyle.textTitle}>{user.nickname}님의 일기</h1>
-      <span className={paperStyle.textDate}>{dateToString(new Date())}</span>
-      <hr className={paperStyle.hr} />
-      <br />
-      <div>
-        <textarea
-          autofocus
-          name="text"
-          className={paperStyle.textarea}
-          value={letter.text}
-          onChange={onChange}
-        ></textarea>
-      </div>
-      <div className={paperStyle.buttons}>
-        <button
-          className={"button " + paperStyle.cancelButton}
-          onClick={onClick}
-        >
-          취소
-        </button>
-        <button className="button" onClick={onSend}>
-          작성
-        </button>
+    <div className={paperStyle.back}>
+      <div className={paperStyle.paper}>
+        <h1 className={paperStyle.textTitle}>{user.nickname}님의 일기</h1>
+        <span className={paperStyle.textDate}>{dateToString(new Date())}</span>
+        <hr className={paperStyle.hr} />
+        <br />
+        <div>
+          <textarea
+            autofocus
+            name="text"
+            className={paperStyle.textarea}
+            value={letter.text}
+            onChange={onChange}
+          ></textarea>
+        </div>
+        <div className={paperStyle.buttons}>
+          <button
+            className={"buttonSpecial " + paperStyle.cancelButton}
+            onClick={onClick}
+          >
+            취소
+          </button>
+          <button className="buttonSpecial" onClick={onSend}>
+            작성
+          </button>
+        </div>
       </div>
     </div>
   );

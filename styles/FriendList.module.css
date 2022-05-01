@@ -1,11 +1,33 @@
-.friendList {
-	padding-inline: 2rem;
+.list {
+	padding: 2rem;
 	background-color: white;
 	border-radius: 1rem;
 	width: 50%;
 	margin-right: 10px;
 }
 
+.left {
+	margin-right: 10px;
+}
+
+.right {
+	margin-left: 10px;
+
+}
+
+.titleWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
 .title {
+	margin-top: 0;
 	font-size: 2rem;
+}
+
+.friend {
+	font-size: 1.4rem;
+	margin-block : 1rem;
 }

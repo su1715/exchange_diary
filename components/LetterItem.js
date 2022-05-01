@@ -1,23 +1,35 @@
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import { paperState, userState } from "../util/recoil";
+import itemStyles from "../styles/LetterItem.module.css";
 
-export default function LetterItem({ letter }) {
+export default function LetterItem({ letter, big }) {
   const { id: letterId, transmissionTime, caller } = letter;
   const timeRemaining = dateFormatting(transmissionTime);
   const setPaperState = useSetRecoilState(paperState);
   const { id: userId } = useRecoilValue(userState);
 
-  const onClick = () => {
+  const onClick = check => {
+    console.log("check:", check);
+    if (check) return;
     if (timeRemaining && userId !== caller) return;
     setPaperState(letterId);
   };
   return (
-    <div onClick={onClick}>
+    <div onClick={() => onClick(big)} className={big ? itemStyles.bigText : ""}>
       {timeRemaining ? (
-        <div>일기가 전송중입니다. {timeRemaining} 후에 도착합니다</div>
+        <>
+          <div>일기가 전송중입니다</div>
+          <div>{timeRemaining} 후에 도착합니다</div>
+        </>
       ) : (
         "일기가 도착했습니다!"
       )}
+      {big ? (
+        <button className="button" onClick={() => onClick(false)}>
+          {" "}
+          일기 보기{" "}
+        </button>
+      ) : null}
     </div>
   );
 }
